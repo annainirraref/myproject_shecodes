@@ -1,0 +1,160 @@
+* {
+  font-family: "Quicksand", sans-serif;
+}
+
+.container {
+  justify-content: center;
+  align-items: center;
+  border: solid lightblue 0.5px;
+  border-radius: 10px;
+  box-shadow: gray;
+  margin-top: 20px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.main-card {
+  width: 100%;
+}
+
+h5,
+.card-text-days {
+  color: #ec3c64;
+  text-align: center;
+}
+
+h1 {
+  color: lightblue;
+  text-align: center;
+  font-size: 16px;
+  margin: 0 auto;
+  padding-top: 5px;
+}
+
+hr .weather {
+  border-top: lightblue 2px solid;
+}
+
+header {
+  display: inline;
+  text-align: center;
+  width: 100%;
+}
+
+.main-card .card-title {
+  font-size: 42px;
+  color: #3c576b;
+}
+
+.icon1 {
+  position: relative;
+  float: left;
+}
+
+.icon2 {
+  position: relative;
+  float: right;
+}
+
+section {
+  color: #ec3c64;
+  width: 100%;
+}
+
+section p {
+  font-size: 22px;
+  font-weight: 700;
+  margin-left: 240px;
+}
+
+.second-card-body {
+  display: inline;
+}
+
+.row {
+  width: 100%;
+  font-size: 18px;
+}
+hr {
+  color: gray;
+}
+
+img {
+  width: 500px;
+  display: block;
+  margin-left: 40px;
+}
+
+.third-card {
+  justify-content: center;
+  font-size: 30px;
+  display: block;
+  align-items: center;
+  border: none;
+  text-justify: center;
+  margin-top: 50px;
+}
+
+.col-sm-4 .third-card-title {
+  font-size: 80px;
+  text-align: left;
+}
+
+hr .third-card-line {
+  border-top: solid 2px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.card-deck .card-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.img-day1,
+.img-day2,
+.img-day3,
+.img-day4,
+.img-day5 {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+}
+
+.card-deck {
+  margin-bottom: 20px;
+}
+
+.third-card-title .today {
+  font-size: 32px;
+  line-height: 1.2;
+}
+
+.form-control {
+  margin-left: 50px;
+}
+
+.form {
+  margin-bottom: 30px;
+}
+
+.geolocalization {
+  background-color: DodgerBlue;
+  border: solid grey 0.75px;
+  border-radius: 10px;
+  color: white; /* White text */
+  padding: 10px 14px; /* Some padding */
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.geolocalization:hover {
+  background-color: #ec3c64;
+}
+
+.fas .fa-map-marker-alt {
+  fill: currentColor;
+  margin: 0.5em;
+}
