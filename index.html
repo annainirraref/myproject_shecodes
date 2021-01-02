@@ -32,24 +32,28 @@
         <header class="main-card title">
 <div class="subheader form row">
   <div class="col-sm">
-          <form class="form-inline search-form" id="search-form">
-            <div class="form-group mb-2">
+          <form class="form-inline search-form mb-5" id="search-form">
+            <div class="row">
+
+            <div class="form-group col-9">
               <input id="type-city" type="search" placeholder="Type a city.." class="form-control" autofocus="on" autocomplete="off"/>
               </div>
-              </div>
-              <div class="form-group mb-2">
-              <input id="search-city" type="submit" value="Search"/>
+             
+              <div class="form-group col-2">
+              <input id="search-city" type="submit" value="Search" class="btn btn-primary w-100"/>
           </div>
           <div class="form-group">
-</div>
-        </form>
-                  <button class="form-button geolocalization" id="geobutton"><i class="fas fa-map-marker-alt" ></i></button>
 
+        </form>
+        <div class="col-1">
+                  <button class="form-button geolocalization" id="geobutton"><i class="fas fa-map-marker-alt" ></i></button>
+</div>
+                </div>
 </div>
 
         <div class="row">
         <h5 class="main-card card-title"> <span class="icon1"><i class="fas fa-align-justify"></i></span> 
-          <span class="h5text" id="citydisplayed">   </span>
+          <span class="h5text" id="citydisplayed"> London </span>
         <span class="icon2"> <i class="fas fa-plus"></i></span> </h5>  
             
           
@@ -64,7 +68,7 @@
    <div class="second-card-body">
   <div class="row">
     
-  <div class="row col-sm-8"><img class="img-left" src="src/images/yellowsun.jpg" alt="Sun"></div>
+  <div class="row col-sm-8"><img id="iconElement" class="img-left" src="src/images/yellowsun.jpg" alt="Sun"></div>
 
 
 <div class="row col-sm-4">
@@ -152,7 +156,7 @@
     </div>
 
     <small>
-      <a href="">Open Source code</a> by Anna Ferrarini
+      <a href="https://github.com/annainirraref/myproject_shecodes" target="_blank">Open Source code</a> by Anna Ferrarini
     </small>
     <script src="src/index.js"></script>
   </body>
