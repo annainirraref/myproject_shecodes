@@ -34,6 +34,8 @@ function displayWeatherCondition(response) {
   document
     .querySelector("#iconElement")
     .setAttribute("alt", response.data.weather[0].description);
+
+  let tempCelsius = response.data.main.temp;
 }
 
 function searchCity(city) {
@@ -43,9 +45,22 @@ function searchCity(city) {
 }
 
 function displayCity(event) {
-  debugger;
   event.preventDefault();
-  let city = document.querySelector("#type-city").value;
+  let cityInputElement = document.querySelector("#type-city");
+  searchCity(cityInputElement.value);
+}
+
+function displayTempFare(event) {
+  event.preventDefault();
+  let tF = document.querySelector(".third-card-title .temperature");
+  let tempFare = (tempCelsius * 9) / 5 + 32;
+  tF.innerHTML = tempFare;
+}
+
+function displayCelsTemp(event) {
+  event.preventDefault();
+  let tC = document.querySelector("#celsiusTemp");
+  tC.innerHTML = Math.round(tempCelsius);
 }
 
 let searchForm = document.querySelector("#search-city");
@@ -66,26 +81,3 @@ function getCurrentLocation(event) {
 
 let geobutton = document.querySelector("#geobutton");
 geobutton.addEventListener("click", getCurrentLocation);
-
-//let possiblecity = document.querySelector("#type-city");
-//let cityDisplayed = document.querySelector(".h5text");
-// cityDisplayed.innerHTML = possiblecity.value;
-
-/*let city = document.querySelector("#search-form");
-city.addEventListener("submit", displayCity);
-city.addEventListener("submit", showTemp);
-function displayTempCelsius(fare) {
-  let tempFare = fare;
-  let fToCel = ((tempFare - 32) * 5) / 9;
-  console.log(fToCel);
-  let tC = document.querySelector(".third-card-title .temperature");
-  tC.innerHTML = fToCel;
-}
-
-function displayTempFare(celsius) {
-  let tempCelsius = celsius;
-  let tempFare = (tempCelsius * 9) / 5 + 32;
-  console.log(tempFare);
-  let tF = document.querySelector(".third-card-title .temperature");
-  tF.innerHTML = tempFare;
-}*/

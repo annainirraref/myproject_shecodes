@@ -141,11 +141,11 @@ hr .third-card-line {
 }
 
 .geolocalization {
-  background-color: DodgerBlue;
+  background-color: #3c576b;
   border: solid grey 0.75px;
   border-radius: 10px;
   color: white; /* White text */
-  padding: 10px 14px; /* Some padding */
+  padding: 6px 12px; /* Some padding */
   font-size: 16px;
   cursor: pointer;
 }
@@ -161,4 +161,16 @@ hr .third-card-line {
 
 h5text:first-letter {
   text-transform: capitalize;
+}
+
+#search-city {
+  background-color: #3c576b;
+  border: white;
+  border-radius: 10px;
+  width: 100%;
+}
+
+#type-city {
+  width: 100%;
+  margin-left: 0;
 }
