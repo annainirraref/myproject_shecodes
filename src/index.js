@@ -21,8 +21,12 @@ function displayWeatherCondition(response) {
     response.data.main.temp
   );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#maxtemp").innerHTML = response.data.main.temp_max;
-  document.querySelector("#mintemp").innerHTML = response.data.main.temp_min;
+  document.querySelector("#maxtemp").innerHTML = Math.round(
+    response.data.main.temp_max
+  );
+  document.querySelector("#mintemp").innerHTML = Math.round(
+    response.data.main.temp_min
+  );
   document.querySelector("#weather-description").innerHTML =
     response.data.weather[0].main;
   document
@@ -34,14 +38,24 @@ function displayWeatherCondition(response) {
   document
     .querySelector("#iconElement")
     .setAttribute("alt", response.data.weather[0].description);
+  document.querySelector("#feelslike").innerHTML = Math.round(
+    response.data.main.feels_like
+  );
 
-  let tempCelsius = response.data.main.temp;
+  let tempCelsius = Math.round(response.data.main.temp);
+}
+
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
 }
 
 function searchCity(city) {
   let apiKey = "e46c43536b53db7462b3c442cf88a50c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e46c43536b53db7462b3c442cf88a50c&units=metric`;
   axios.get(apiUrl).then(displayWeatherCondition);
+
+  let apiUrl1 = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&untis=metrics `;
+  axios.get(apiUrl1).then(displayForecast);
 }
 
 function displayCity(event) {
@@ -51,7 +65,6 @@ function displayCity(event) {
 }
 
 function displayTempFare(event) {
-  event.preventDefault();
   let tF = document.querySelector(".third-card-title .temperature");
   let tempFare = (tempCelsius * 9) / 5 + 32;
   tF.innerHTML = tempFare;
@@ -81,3 +94,5 @@ function getCurrentLocation(event) {
 
 let geobutton = document.querySelector("#geobutton");
 geobutton.addEventListener("click", getCurrentLocation);
+
+let celsiusTemperature = null;

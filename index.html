@@ -75,19 +75,19 @@
   <div class="card third-card" style="width: 500px;">
     <div class="card-title third-card-title">  <span id="currentday" class="third-card-title today">Thu, 10 Dec </span> 
     </br><span class="third-card-title temperature" id="currentTemperature"> 15</span>° 
-      <a onclick="displayTempCelsius()" href="#" class="celsius" id="celsiusTemp">
+      <a onclick="displayCelTemp()" href="#" class="celsius" id="celsiusTemp">
       C</a>/ <a onclick="displayTempFare()" href="#" class="farenheit">F</a></div>
     <hr class="col-xs-12 third-card-line" style="color:#ec3c64">
             <div class="row row-cols-2">
               <div class="col"> FEELS LIKE </div>
-              <div class="col" id="feelslike">10° C</div>
+              <div class="col"> <span id="feelslike"> 10</span>° C</div>
               <div class="col">HUMIDITY</div>
-              <div class="col" id="humidity"
-              >50 <span>%</span></div>
+              <div class="col" 
+              > <span id="humidity">50</span>%  </div>
               <div class="col">MAX</div>
-              <div class="col" id="maxtemp">17 <span>°C</span></div>
+              <div class="col"> <span id="maxtemp"> 17</span> °C</div>
               <div class="col">MIN</div>
-              <div class="col"id="mintemp">11<span>°C</span></div>
+              <div class="col"> <span id="mintemp" >11</span> °C</div>
             </div>
   </div>
 </div>
@@ -101,7 +101,7 @@
 
 
 
-<div class="card-deck">
+<div class="card-deck" id="forecast">
 
        
   <div class="card card-day1" style="width: 200px;">
