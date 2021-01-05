@@ -98,6 +98,7 @@ function displayCity(event) {
 }
 
 function displayTempFare(event) {
+  event.preventDefault();
   let tF = document.querySelector(".third-card-title .temperature");
   let tempFare = (tempCelsius * 9) / 5 + 32;
   tF.innerHTML = tempFare;
@@ -127,5 +128,3 @@ function getCurrentLocation(event) {
 
 let geobutton = document.querySelector("#geobutton");
 geobutton.addEventListener("click", getCurrentLocation);
-
-let tempCelsius = null;
