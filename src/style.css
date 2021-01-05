@@ -164,3 +164,8 @@ h5text:first-letter {
   width: 100%;
   margin-left: 0;
 }
+
+.linktorepository {
+  margin-left: 100px;
+  margin-bottom: 50px;
+}

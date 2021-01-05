@@ -16,9 +16,12 @@ formatDate();
 
 function displayWeatherCondition(response) {
   console.log(response.data.name);
+
+  let tempCelsius = response.data.main.temp;
+
   document.querySelector("#citydisplayed").innerHTML = response.data.name;
   document.querySelector("#currentTemperature").innerHTML = Math.round(
-    response.data.main.temp
+    tempCelsius
   );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#maxtemp").innerHTML = Math.round(
@@ -41,8 +44,6 @@ function displayWeatherCondition(response) {
   document.querySelector("#feelslike").innerHTML = Math.round(
     response.data.main.feels_like
   );
-
-  let tempCelsius = Math.round(response.data.main.temp);
 }
 
 function formatHours(timestamp) {
@@ -97,11 +98,11 @@ function displayCity(event) {
   searchCity(cityInputElement.value);
 }
 
-function displayTempFare(event) {
+function displayFare(event) {
   event.preventDefault();
   let tF = document.querySelector(".third-card-title .temperature");
   let tempFare = (tempCelsius * 9) / 5 + 32;
-  tF.innerHTML = tempFare;
+  tF.innerHTML = math.round(tempFare);
 }
 
 function displayCelsTemp(event) {
@@ -128,3 +129,24 @@ function getCurrentLocation(event) {
 
 let geobutton = document.querySelector("#geobutton");
 geobutton.addEventListener("click", getCurrentLocation);
+
+let fahrenheitLink = document.querySelector("#tempFar");
+fahrenheitLink.addEventListener("click", displayFare);
+
+/*let weatherIcons = {
+  clear sky:"src/icons/sunny.png", //"/src/icons/clear sky.png",
+  few clouds:"src/icons/few clouds d.png",//"src/icons/few clouds n.png",
+  scattered clouds:"src/icons/scattered clouds.png",
+  broken clouds:"src/icons/light clouds d.png", //"src/icons/light clouds d.png",
+  shower rain: "src/icons/shower rain d.png", //"src/icons/shower rain d.png",
+  rain: "src/icons/rain.png"
+  thunderstorm:"src/icons/thunder.png"
+  snow:"src/icons/snow.png"
+  mist:"src/icons/mist.png"
+
+};
+
+let condition = parsed_json['description'];
+let iconTOUse = weatherIcons[condition];
+
+ //'<img src="'+iconTOUse+'" />';*/
