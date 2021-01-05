@@ -116,7 +116,7 @@ searchCity("New York"); //to have a default city when you open the website
 
 function searchLocation(position) {
   let apiKey = "e46c43536b53db7462b3c442cf88a50c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
