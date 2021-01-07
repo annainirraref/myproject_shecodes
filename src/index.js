@@ -110,7 +110,7 @@ function displayForecast(response) {
     <div class="card card-day1" style="width: 200px;">
   <div class="card-body">
     <h5 class="card-title">${formatHours(forecast.dt * 1000)}</h5>
-    <img class="img-day1" id="iconElements" src="weatherIcons[response.data.weather[0].icon]" class="card-img-top" alt="cloudy">
+    <img class="img-day1" id="iconElements" src="weatherIcons[forecast.weather[0].icon]" class="card-img-top" alt="cloudy">
     <p class="card-text-days">▲ ${Math.round(
       forecast.main.temp_max
     )}° C <br /> ▼ ${Math.round(forecast.main.temp_min)}° C</p>

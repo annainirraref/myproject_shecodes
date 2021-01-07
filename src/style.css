@@ -173,3 +173,12 @@ h5text:first-letter {
   margin-left: 100px;
   margin-bottom: 50px;
 }
+
+@media only screen and (max-width: 600px) {
+  img {
+    width: 100%;
+  }
+  div .card-title .third-card-title {
+    font-size: 16px;
+  }
+}
