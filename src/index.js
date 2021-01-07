@@ -117,10 +117,11 @@ function displayForecast(response) {
   </div>
                   </div>
     `;
+
+    document
+      .querySelector("#iconElements")
+      .setAttribute("src", weatherIcons[forecast.weather[0].icon]);
   }
-  document
-    .querySelector("#iconElements")
-    .setAttribute("src", weatherIcons[forecast.weather[0].icon]);
 }
 
 function searchCity(city) {
