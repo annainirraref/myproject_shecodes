@@ -120,7 +120,7 @@ function displayForecast(response) {
   }
   document
     .querySelector("#iconElements")
-    .setAttribute("src", weatherIcons[response.data.weather[0].icon]);
+    .setAttribute("src", weatherIcons[forecast.weather[0].icon]);
 }
 
 function searchCity(city) {
