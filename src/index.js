@@ -38,7 +38,7 @@ function displayWeatherCondition(response) {
     "50n": "src/icons/mist.png",
   };
 
-  let tempCelsius = response.data.main.temp;
+  tempCelsius = response.data.main.temp;
 
   document.querySelector("#citydisplayed").innerHTML = response.data.name;
   document.querySelector("#currentTemperature").innerHTML = Math.round(
@@ -83,44 +83,42 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
   let forecast = null;
-  let weatherIcons = {
-    "01d": "src/icons/sunny.png",
-    "01n": "src/icons/clear sky.png",
-    "02d": "src/icons/few clouds d.png",
-    "02n": "src/icons/few clouds n.png",
-    "03d": "src/icons/scattered clouds.png",
-    "03n": "src/icons/scattered clouds.png",
-    "04d": "src/icons/light clouds d.png",
-    "04n": "src/icons/light clouds n.png",
-    "09d": "src/icons/shower rain d.png",
-    "09n": "src/icons/shower rain n.png",
-    "10d": "src/icons/rain.png",
-    "10n": "src/icons/rain.png",
-    "11d": "src/icons/thunder.png",
-    "11n": "src/icons/thunder.png",
-    "13d": "src/icons/snow.png",
-    "13n": "src/icons/snow.png",
-    "50d": "src/icons/mist.png",
-    "50n": "src/icons/mist.png",
-  };
 
   for (let index = 0; index < 5; index++) {
     forecast = response.data.list[index];
+    let weatherIcons = {
+      "01d": "src/icons/sunny.png",
+      "01n": "src/icons/clear sky.png",
+      "02d": "src/icons/few clouds d.png",
+      "02n": "src/icons/few clouds n.png",
+      "03d": "src/icons/scattered clouds.png",
+      "03n": "src/icons/scattered clouds.png",
+      "04d": "src/icons/light clouds d.png",
+      "04n": "src/icons/light clouds n.png",
+      "09d": "src/icons/shower rain d.png",
+      "09n": "src/icons/shower rain n.png",
+      "10d": "src/icons/rain.png",
+      "10n": "src/icons/rain.png",
+      "11d": "src/icons/thunder.png",
+      "11n": "src/icons/thunder.png",
+      "13d": "src/icons/snow.png",
+      "13n": "src/icons/snow.png",
+      "50d": "src/icons/mist.png",
+      "50n": "src/icons/mist.png",
+    };
     forecastElement.innerHTML += `
     <div class="card card-day1" style="width: 200px;">
   <div class="card-body">
     <h5 class="card-title">${formatHours(forecast.dt * 1000)}</h5>
-    <img class="img-day1" id="iconElements" src="weatherIcons[forecast.weather[0].icon]" class="card-img-top" alt="cloudy">
+    <img class="img-day1" id="iconElements" src="${
+      weatherIcons[forecast.weather[0].icon]
+    }" class="card-img-top" alt="cloudy">
     <p class="card-text-days">▲ ${Math.round(
       forecast.main.temp_max
     )}° C <br /> ▼ ${Math.round(forecast.main.temp_min)}° C</p>
   </div>
                   </div>
     `;
-
-    document
-      .querySelector("#iconElements")
-      .setAttribute("src", weatherIcons[forecast.weather[0].icon]);
   }
 }
 
