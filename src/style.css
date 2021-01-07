@@ -13,6 +13,7 @@
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
+  background-color: #fbfdfc;
 }
 
 .main-card {
@@ -31,6 +32,7 @@ h1 {
   font-size: 16px;
   margin: 0 auto;
   padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 hr .weather {
@@ -85,6 +87,7 @@ img {
   border: none;
   text-justify: center;
   margin-top: 50px;
+  background-color: #fbfdfc;
 }
 
 .col-sm-4 .third-card-title {
@@ -115,6 +118,7 @@ hr .third-card-line {
 
 .card-deck {
   margin-bottom: 20px;
+  margin-top: 50px;
 }
 
 .third-card-title .today {

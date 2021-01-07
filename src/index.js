@@ -17,6 +17,27 @@ formatDate();
 function displayWeatherCondition(response) {
   console.log(response.data.name);
 
+  let weatherIcons = {
+    "01d": "src/icons/sunny.png",
+    "01n": "src/icons/clear sky.png",
+    "02d": "src/icons/few clouds d.png",
+    "02n": "src/icons/few clouds n.png",
+    "03d": "src/icons/scattered clouds.png",
+    "03n": "src/icons/scattered clouds.png",
+    "04d": "src/icons/light clouds d.png",
+    "04n": "src/icons/light clouds n.png",
+    "09d": "src/icons/shower rain d.png",
+    "09n": "src/icons/shower rain n.png",
+    "10d": "src/icons/rain.png",
+    "10n": "src/icons/rain.png",
+    "11d": "src/icons/thunder.png",
+    "11n": "src/icons/thunder.png",
+    "13d": "src/icons/snow.png",
+    "13n": "src/icons/snow.png",
+    "50d": "src/icons/mist.png",
+    "50n": "src/icons/mist.png",
+  };
+
   let tempCelsius = response.data.main.temp;
 
   document.querySelector("#citydisplayed").innerHTML = response.data.name;
@@ -34,13 +55,11 @@ function displayWeatherCondition(response) {
     response.data.weather[0].main;
   document
     .querySelector("#iconElement")
-    .setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
+    .setAttribute("src", weatherIcons[response.data.weather[0].icon]);
   document
     .querySelector("#iconElement")
     .setAttribute("alt", response.data.weather[0].description);
+
   document.querySelector("#feelslike").innerHTML = Math.round(
     response.data.main.feels_like
   );
@@ -64,6 +83,26 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
   let forecast = null;
+  let weatherIcons = {
+    "01d": "src/icons/sunny.png",
+    "01n": "src/icons/clear sky.png",
+    "02d": "src/icons/few clouds d.png",
+    "02n": "src/icons/few clouds n.png",
+    "03d": "src/icons/scattered clouds.png",
+    "03n": "src/icons/scattered clouds.png",
+    "04d": "src/icons/light clouds d.png",
+    "04n": "src/icons/light clouds n.png",
+    "09d": "src/icons/shower rain d.png",
+    "09n": "src/icons/shower rain n.png",
+    "10d": "src/icons/rain.png",
+    "10n": "src/icons/rain.png",
+    "11d": "src/icons/thunder.png",
+    "11n": "src/icons/thunder.png",
+    "13d": "src/icons/snow.png",
+    "13n": "src/icons/snow.png",
+    "50d": "src/icons/mist.png",
+    "50n": "src/icons/mist.png",
+  };
 
   for (let index = 0; index < 5; index++) {
     forecast = response.data.list[index];
@@ -71,9 +110,7 @@ function displayForecast(response) {
     <div class="card card-day1" style="width: 200px;">
   <div class="card-body">
     <h5 class="card-title">${formatHours(forecast.dt * 1000)}</h5>
-    <img class="img-day1"src=" http://openweathermap.org/img/wn/${
-      forecast.weather[0].icon
-    }@2x.png" class="card-img-top" alt="cloudy">
+    <img class="img-day1" id="iconElements" src="weatherIcons[response.data.weather[0].icon]" class="card-img-top" alt="cloudy">
     <p class="card-text-days">▲ ${Math.round(
       forecast.main.temp_max
     )}° C <br /> ▼ ${Math.round(forecast.main.temp_min)}° C</p>
@@ -81,6 +118,9 @@ function displayForecast(response) {
                   </div>
     `;
   }
+  document
+    .querySelector("#iconElements")
+    .setAttribute("src", weatherIcons[response.data.weather[0].icon]);
 }
 
 function searchCity(city) {
@@ -102,12 +142,12 @@ function displayFare(event) {
   event.preventDefault();
   let tF = document.querySelector(".third-card-title .temperature");
   let tempFare = (tempCelsius * 9) / 5 + 32;
-  tF.innerHTML = math.round(tempFare);
+  tF.innerHTML = Math.round(tempFare);
 }
 
-function displayCelsTemp(event) {
+function displayCels(event) {
   event.preventDefault();
-  let tC = document.querySelector("#celsiusTemp");
+  let tC = document.querySelector("#currentTemperature");
   tC.innerHTML = Math.round(tempCelsius);
 }
 
@@ -133,20 +173,44 @@ geobutton.addEventListener("click", getCurrentLocation);
 let fahrenheitLink = document.querySelector("#tempFar");
 fahrenheitLink.addEventListener("click", displayFare);
 
-/*let weatherIcons = {
-  clear sky:"src/icons/sunny.png", //"/src/icons/clear sky.png",
-  few clouds:"src/icons/few clouds d.png",//"src/icons/few clouds n.png",
-  scattered clouds:"src/icons/scattered clouds.png",
-  broken clouds:"src/icons/light clouds d.png", //"src/icons/light clouds d.png",
-  shower rain: "src/icons/shower rain d.png", //"src/icons/shower rain d.png",
-  rain: "src/icons/rain.png"
-  thunderstorm:"src/icons/thunder.png"
-  snow:"src/icons/snow.png"
-  mist:"src/icons/mist.png"
+let celsiusLink = document.querySelector("#celsiusTemp");
+celsiusLink.addEventListener("click", displayCels);
 
+let tempCelsius = null;
+
+// to be put inside displayForecast function
+/*let weatherIcons = {
+  "01d":"src/icons/sunny.png", 
+  "01n":"src/icons/clear sky.png",
+  "02d":"src/icons/few clouds d.png",
+  "02n":"src/icons/few clouds n.png",
+  "03d":"src/icons/scattered clouds.png",
+  "03n":"src/icons/scattered clouds.png",
+  "04d":"src/icons/light clouds d.png",
+  "04n":"src/icons/light clouds n.png",
+  "09d":"src/icons/shower rain d.png", 
+  "09n":"src/icons/shower rain n.png",
+  "10d": "src/icons/rain.png",
+  "10n": "src/icons/rain.png",
+  "11d":"src/icons/thunder.png",
+  "11n":"src/icons/thunder.png",
+  "13d":"src/icons/snow.png",
+  "13n":"src/icons/snow.png",
+  "50d":"src/icons/mist.png",
+  "50n":"src/icons/mist.png"
 };
 
-let condition = parsed_json['description'];
-let iconTOUse = weatherIcons[condition];
+document
+    .querySelector("#iconElement")
+    .setAttribute(
+      "src",
+      weatherIcons[response.data.weather[0].icon]
+    );
 
- //'<img src="'+iconTOUse+'" />';*/
+
+    document
+    .querySelector("#iconElements")
+    .setAttribute(
+      "src",
+      weatherIcons[response.data.weather[0].icon]
+    );*/
