@@ -155,15 +155,27 @@ searchForm.addEventListener("click", displayCity);
 
 searchCity("New York"); //to have a default city when you open the website
 
-function searchLocation(position) {
-  let apiKey = "e46c43536b53db7462b3c442cf88a50c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayWeatherCondition);
+function success() {
+  function searchLocation(position) {
+    let apiKey = "e46c43536b53db7462b3c442cf88a50c";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(displayWeatherCondition);
+  }
+  function displayLocalForecast(position) {
+    let apiKey = "e46c43536b53db7462b3c442cf88a50c";
+    let apiUrl2 = `https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl2).then(displayForecast);
+  }
+}
+
+function error(err) {
+  alert(`ERROR(${err.code}): ${err.message}`);
 }
 
 function getCurrentLocation(event) {
   event.preventDefault();
-  navigator.geolocation.getCurrentPosition(searchLocation);
+  navigator.geolocation.getCurrentPosition(success, error);
 }
 
 let geobutton = document.querySelector("#geobutton");
